@@ -4,6 +4,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QRRoomList from "./components/QRRoomList";
 import RoomDetail from "./components/RoomDetail";
 import "./index.css";
+import QRCode from "react-qr-code";
+
+function RoomQRCode({ room }) {
+  const roomUrl = `https://your-vercel-app.vercel.app/room/${room.replace(/\s+/g, "").toUpperCase()}`;
+  return (
+    <div className="qr-box">
+      <QRCode value={roomUrl} size={128} />
+      <p>{room}</p>
+    </div>
+     );
+}
 
 function App() {
   return (
