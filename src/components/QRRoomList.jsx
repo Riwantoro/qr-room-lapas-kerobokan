@@ -30,6 +30,13 @@ function QRRoomList() {
     navigate(`/room/${encodeURIComponent(room)}`);
   };
 
+  // Debug function
+  const generateQRUrl = (room) => {
+    const url = `${getBaseUrl()}/room/${encodeURIComponent(room)}`;
+    console.log(`QR URL for ${room}:`, url);
+    return url;
+  };
+
   return (
     <div>
       <h1>QR Code by Room</h1>
@@ -42,7 +49,7 @@ function QRRoomList() {
             style={{ cursor: 'pointer' }}
             title={`Click to view ${room} data`}
           >
-            <QRCode value={`${getBaseUrl()}/room/${encodeURIComponent(room)}`} size={128} />
+            <QRCode value={generateQRUrl(room)} size={128} />
             <h3>{room}</h3>
             <p className="click-hint">Click or scan to view</p>
           </div>
