@@ -8,7 +8,7 @@ function RoomDetail() {
   const [error, setError] = useState(null);
 
   // Railway backend URL - GANTI INI DENGAN URL RAILWAY KAMU
-  const API_BASE_URL = 'https://qr-room-lapas-kerobokan-backend-production.up.railway.app/';
+  const API_BASE_URL = 'https://qr-room-lapas-kerobokan-backend-production.up.railway.app';
 
   useEffect(() => {
     const fetchRoomData = async () => {

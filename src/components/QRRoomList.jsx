@@ -10,7 +10,7 @@ function QRRoomList() {
   const navigate = useNavigate();
 
   // Railway backend URL - GANTI INI DENGAN URL RAILWAY KAMU
-  const API_BASE_URL = 'https://qr-room-lapas-kerobokan-backend-production.up.railway.app/';
+  const API_BASE_URL = 'https://qr-room-lapas-kerobokan-backend-production.up.railway.app';
 
   // Get base URL dynamically
   const getBaseUrl = () => {
