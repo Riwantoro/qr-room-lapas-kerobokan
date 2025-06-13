@@ -7,7 +7,7 @@ import "./index.css";
 import QRCode from "react-qr-code";
 
 function RoomQRCode({ room }) {
-  const roomUrl = `https://your-vercel-app.vercel.app/room/${room.replace(/\s+/g, "").toUpperCase()}`;
+  const roomUrl = `https://qrroom-lapaskerobokan.netlify.app/room/${room.replace(/\s+/g, "").toUpperCase()}`;
   return (
     <div className="qr-box">
       <QRCode value={roomUrl} size={128} />

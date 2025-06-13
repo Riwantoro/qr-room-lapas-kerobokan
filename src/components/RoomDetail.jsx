@@ -1,27 +1,42 @@
-import "../index.css";
+// RoomDetail.jsx
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import wbpData from "../data/wbp.json";
-import { useEffect, useState } from "react";
 
 function RoomDetail() {
   const { roomId } = useParams();
   const [inmates, setInmates] = useState([]);
+  const [roomName, setRoomName] = useState("");
 
   useEffect(() => {
-    const data = Object.values(wbpData)[0]?.slice(1) || [];
-    const filtered = data.filter(
-      (inmate) => inmate.wisma?.toLowerCase() === roomId.toLowerCase()
-    );
-    setInmates(filtered);
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/room/${roomId}`);
+        const data = await res.json();
+        setInmates(data);
+        if (data.length > 0) {
+          setRoomName(data[0].wisma || roomId);
+        } else {
+          setRoomName(roomId);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, [roomId]);
 
   return (
-    <div>
-      <h1>Room: {roomId}</h1>
+    <div style={{ padding: "2rem", color: "white" }}>
+      <h2>Room: {roomName}</h2>
       <ul>
-        {inmates.map((inmate, idx) => (
-          <li key={idx}>{inmate.nama}</li>
-        ))}
+        {inmates.length > 0 ? (
+          inmates.map((inmate, idx) => (
+            <li key={idx}>{inmate.name}</li>
+          ))
+        ) : (
+          <p>No inmates found in this room.</p>
+        )}
       </ul>
     </div>
   );
