@@ -1,0 +1,73 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  padding: 1rem;
+}
+
+h1, h2 {
+  font-weight: 700;
+  color: #f9f9f9;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #ff3d6a;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ff3d6a;
+}
+
+.qr-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.qr-card {
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(255, 61, 106, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.qr-card:hover {
+  transform: scale(1.05);
+}
+
+.qr-card h3 {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+li {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #eee;
+}
